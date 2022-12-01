@@ -1,4 +1,5 @@
 ﻿using DepressionTestLib.DBContext;
+using DepressionTestLib.Helpers;
 using DepressionTestLib.Models;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,94 @@ namespace DepressionTestLib.Data
             }
             
         }
-        
+        public List<DepressionTestHistory> GetHistory()
+        {
+            return db.DepressionTestHistory.ToList();
+
+        }
+
+        public Result AddDepressionTest(AddDepressionTestRequest addDepressionTestRequest )
+        {
+            Result res = new Result();
+
+            DepressionTestHistory depressionTest = new DepressionTestHistory();
+            depressionTest.Id = Guid.NewGuid().ToString();
+            depressionTest.UserId = addDepressionTestRequest.UserId;
+            depressionTest.ScoreResult = addDepressionTestRequest.ScoreResult;
+            depressionTest.Comment = null;
+            depressionTest.TestDate = DateTime.UtcNow;
+            depressionTest.LastUpdated = DateTime.UtcNow;
+
+            //calculate level result
+            // 1-27 คะแนน
+           if (addDepressionTestRequest.ScoreResult >= 19)
+            {
+                depressionTest.LevelResult = "รุนแรง";
+            }
+           else if(addDepressionTestRequest.ScoreResult <= 18 && addDepressionTestRequest.ScoreResult >= 13 )
+            {
+                depressionTest.LevelResult = "ปานกลาง";
+            }
+           else if(addDepressionTestRequest.ScoreResult <= 12 && addDepressionTestRequest.ScoreResult >= 7)
+            {
+                depressionTest.LevelResult = "เล็กน้อย";
+            }
+           else if (addDepressionTestRequest.ScoreResult <=7)
+            {
+                depressionTest.LevelResult ="ไม่มีอาการ";
+            }
+           else { }
+
+
+
+            db.DepressionTestHistory.Add(depressionTest);
+            db.SaveChanges();//execute command 
+
+
+
+            res.Message = "Add depression test success";
+            res.IsSuccess = true;
+
+            return res;
+
+        }
+        public Result EditComment(EditCommentRequest editCommentRequest)
+        {
+            Result res = new Result();
+            //linq
+
+            DepressionTestHistory updateRecord = db.DepressionTestHistory.Where(f => f.Id == editCommentRequest.Id).FirstOrDefault();
+            updateRecord.Comment = editCommentRequest.Comment;
+            db.SaveChanges();
+
+            res.Message = "Edit comment success";
+            res.IsSuccess = true;
+
+            return res;
+        }
+        public Result DeleteDepressionTest(string id)
+        {
+            Result res =   new Result();
+
+            DepressionTestHistory deleteRecord = db.DepressionTestHistory.Where(f => f.Id == id).FirstOrDefault();
+            db.DepressionTestHistory.Remove(deleteRecord);
+            db.SaveChanges();
+
+            res.Message = "Remove your Data success!";
+            res.IsSuccess = true;
+
+            return res;
+        }
+        public List<DepressionTestHistory> GetDepressionTestByStudent(string userId) 
+        {
+            List<DepressionTestHistory> viewRocord = db.DepressionTestHistory.Where(f => f.UserId == userId).ToList();
+           return viewRocord;
+
+        }
+        public List<DepressionTestHistory> GetDepressionTestByTeacher(DateTime startTestDate, DateTime endTestDate)
+        {
+            List < DepressionTestHistory > viewDateTime = db.DepressionTestHistory.Where(f => f.TestDate <= startTestDate && f.TestDate >= endTestDate).ToList();
+            return viewDateTime;
+        }
     }
 }

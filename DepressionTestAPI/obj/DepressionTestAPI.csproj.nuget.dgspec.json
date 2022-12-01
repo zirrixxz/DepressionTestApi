@@ -1,17 +1,95 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestAPI\\DepressionTestAPI.csproj": {}
+    "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestAPI\\DepressionTestAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestAPI\\DepressionTestAPI.csproj": {
+    "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestAPI\\DepressionTestAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestAPI\\DepressionTestAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestAPI\\DepressionTestAPI.csproj",
         "projectName": "DepressionTestAPI",
-        "projectPath": "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestAPI\\DepressionTestAPI.csproj",
+        "projectPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestAPI\\DepressionTestAPI.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestAPI\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj": {
+                "projectPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj",
+        "projectName": "DepressionTestLib",
+        "projectPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj",
+        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +118,23 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Swashbuckle.AspNetCore": {
+            "Microsoft.AspNetCore.Identity": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -57,9 +149,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

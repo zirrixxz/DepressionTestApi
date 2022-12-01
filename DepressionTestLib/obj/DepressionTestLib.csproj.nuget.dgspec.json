@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestLib\\DepressionTestLib.csproj": {}
+    "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestLib\\DepressionTestLib.csproj": {
+    "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestLib\\DepressionTestLib.csproj",
+        "projectUniqueName": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj",
         "projectName": "DepressionTestLib",
-        "projectPath": "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestLib\\DepressionTestLib.csproj",
+        "projectPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\DepressionTestLib.csproj",
         "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Acer\\Desktop\\ProjectCode\\DepressionTestAPI\\DepressionTestLib\\obj\\",
+        "outputPath": "C:\\Users\\Acer\\DepressionTestApi\\DepressionTestLib\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.0, )"
