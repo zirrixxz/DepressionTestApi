@@ -1,0 +1,16 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  depressiontestapi:
+    image: depressiontestapi
+    build:
+      context: .
+      dockerfile: DepressionTestAPI/Dockerfile
+    ports:
+      - 8081:7141
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw

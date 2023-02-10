@@ -4,6 +4,7 @@ C:\Users\Acer\Desktop\ProjectCode\DepressionTestAPI\DepressionTestLib\obj\Debug\
 C:\Users\Acer\Desktop\ProjectCode\DepressionTestAPI\DepressionTestLib\obj\Debug\net6.0\DepressionTestLib.AssemblyInfo.cs
 C:\Users\Acer\Desktop\ProjectCode\DepressionTestAPI\DepressionTestLib\obj\Debug\net6.0\DepressionTestLib.csproj.CoreCompileInputs.cache
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\bin\Debug\net6.0\DepressionTestLib.deps.json
+C:\Users\Acer\DepressionTestApi\DepressionTestLib\bin\Debug\net6.0\DepressionTestLib.runtimeconfig.json
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\bin\Debug\net6.0\DepressionTestLib.dll
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\bin\Debug\net6.0\DepressionTestLib.pdb
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\DepressionTestLib.csproj.AssemblyReference.cache
@@ -14,6 +15,5 @@ C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\DepressionTes
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\DepressionTestLib.dll
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\refint\DepressionTestLib.dll
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\DepressionTestLib.pdb
-C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\ref\DepressionTestLib.dll
-C:\Users\Acer\DepressionTestApi\DepressionTestLib\bin\Debug\net6.0\DepressionTestLib.runtimeconfig.json
 C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\DepressionTestLib.genruntimeconfig.cache
+C:\Users\Acer\DepressionTestApi\DepressionTestLib\obj\Debug\net6.0\ref\DepressionTestLib.dll

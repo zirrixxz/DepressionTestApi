@@ -12,5 +12,8 @@ namespace DepressionTestLib.Helpers
 
         public string UserId {get; set; }
         public int ScoreResult { get; set; }
+        public DateTime TestDate { get; set; }
+
+        public string? Feedback  { get; set; }
     }
 }

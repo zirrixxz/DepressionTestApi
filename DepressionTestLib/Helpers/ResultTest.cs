@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace DepressionTestLib.Helpers
 {
-    public class Result
+    public class ResultTest
     {
         public string Message { get; set; }
         public bool IsSuccess { get; set; }
-       
+        public string  Level { get; set; }
+
+        public int Score { get; set; }
+
     }
-
 }
-

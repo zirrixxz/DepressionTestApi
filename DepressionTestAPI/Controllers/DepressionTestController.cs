@@ -14,13 +14,9 @@ namespace DepressionTestAPI.Controllers
 
             this.DepressionTestManager = depressionTestManager;
         }
-        [HttpGet]
-        public List<DepressionTestHistory> GetHistory()
-        {
-            return DepressionTestManager.GetHistory();
-        }
+    
         [HttpPost]
-        public Result AddDepressionTest(AddDepressionTestRequest addDepressionTestRequest)
+        public ResultTest AddDepressionTest([FromBody] AddDepressionTestRequest addDepressionTestRequest)
         {
             return DepressionTestManager.AddDepressionTest(addDepressionTestRequest);
         }
@@ -36,9 +32,9 @@ namespace DepressionTestAPI.Controllers
         }
 
         [HttpGet]
-        public List<DepressionTestHistory> GetDepressionTestByStudent(string userId)
+        public List<DepressionTestHistory> GetDepressionTestByStudent(string userId, DateTime startTestDate, DateTime endTestDate)
         {
-            return DepressionTestManager.GetDepressionTestByStudent(userId);
+            return DepressionTestManager.GetDepressionTestByStudent(userId, startTestDate, endTestDate);
         }
         [HttpGet]
         public List<DepressionTestHistory> GetDepressionTestByTeacher(DateTime startTestDate, DateTime endTestDate)

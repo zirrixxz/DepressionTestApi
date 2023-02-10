@@ -1,6 +1,7 @@
 ﻿using DepressionTestLib.DBContext;
 using DepressionTestLib.Helpers;
 using DepressionTestLib.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,26 +44,22 @@ namespace DepressionTestLib.Data
             }
             
         }
-        public List<DepressionTestHistory> GetHistory()
-        {
-            return db.DepressionTestHistory.ToList();
+     
 
-        }
-
-        public Result AddDepressionTest(AddDepressionTestRequest addDepressionTestRequest )
+        public ResultTest AddDepressionTest(AddDepressionTestRequest addDepressionTestRequest )
         {
-            Result res = new Result();
+            ResultTest res = new ResultTest();
 
             DepressionTestHistory depressionTest = new DepressionTestHistory();
+            
             depressionTest.Id = Guid.NewGuid().ToString();
             depressionTest.UserId = addDepressionTestRequest.UserId;
             depressionTest.ScoreResult = addDepressionTestRequest.ScoreResult;
-            depressionTest.Comment = null;
+            depressionTest.Comment = null; //รอให้อาจารย์มา comment
             depressionTest.TestDate = DateTime.UtcNow;
             depressionTest.LastUpdated = DateTime.UtcNow;
 
-            //calculate level result
-            // 1-27 คะแนน
+            //calculate level result            // 1-27 คะแนน
            if (addDepressionTestRequest.ScoreResult >= 19)
             {
                 depressionTest.LevelResult = "รุนแรง";
@@ -82,19 +79,37 @@ namespace DepressionTestLib.Data
            else { }
 
 
-
+            
             db.DepressionTestHistory.Add(depressionTest);
-            db.SaveChanges();//execute command 
-
-
-
+            db.SaveChanges(); //execute command 
+           
             res.Message = "Add depression test success";
             res.IsSuccess = true;
+            res.Level = depressionTest.LevelResult!;
+            res.Score = addDepressionTestRequest.ScoreResult;
 
+            //for example 
+            //string a = "";  --> empty
+            //string a = null; --> null
+            //null
+            //empty
+            
+            if(!String.IsNullOrEmpty(addDepressionTestRequest.Feedback))
+            {
+                //บันทึกลง table feedback
+                Feedback feedbackMessage = new Feedback();
+                feedbackMessage.UserId = addDepressionTestRequest.UserId;
+                feedbackMessage.Message = addDepressionTestRequest.Feedback;
+                feedbackMessage.FeedbackId = Guid.NewGuid().ToString();
+                feedbackMessage.LastUpdated = DateTime.UtcNow;
+                db.Feedback.Add(feedbackMessage);
+                db.SaveChanges();
+            }  
+                
             return res;
 
         }
-        public Result EditComment(EditCommentRequest editCommentRequest)
+        public Result EditComment(EditCommentRequest editCommentRequest) //สำหรับให้อาจารย์มา comment 
         {
             Result res = new Result();
             //linq
@@ -121,15 +136,15 @@ namespace DepressionTestLib.Data
 
             return res;
         }
-        public List<DepressionTestHistory> GetDepressionTestByStudent(string userId) 
+        public List<DepressionTestHistory> GetDepressionTestByStudent(string userId,DateTime startTestDate, DateTime endTestDate) 
         {
-            List<DepressionTestHistory> viewRocord = db.DepressionTestHistory.Where(f => f.UserId == userId).ToList();
+            List<DepressionTestHistory> viewRocord = db.DepressionTestHistory.Include("User").Where(f => f.UserId == userId && f.TestDate <= startTestDate && f.TestDate >= endTestDate).ToList();
            return viewRocord;
 
         }
         public List<DepressionTestHistory> GetDepressionTestByTeacher(DateTime startTestDate, DateTime endTestDate)
         {
-            List < DepressionTestHistory > viewDateTime = db.DepressionTestHistory.Where(f => f.TestDate <= startTestDate && f.TestDate >= endTestDate).ToList();
+            List < DepressionTestHistory > viewDateTime = db.DepressionTestHistory.Include("User").Where(f => f.TestDate <= startTestDate && f.TestDate >= endTestDate).ToList();
             return viewDateTime;
         }
     }
